@@ -86,7 +86,7 @@ export class MigrationManager {
     }
   }
 
-  async getMigrationStatus(): Promise<{ executed: MigrationRecord[] pending: string[] }> {
+  async getMigrationStatus(): Promise<{ executed: MigrationRecord[]; pending: string[] }> {
     const executed = await this.migrationsCollection
       .find({})
       .sort({ executedAt: 1 })

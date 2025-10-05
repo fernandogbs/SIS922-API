@@ -66,7 +66,7 @@ export async function authRoutes(fastify: FastifyInstance) {
   })
 
   // Create admin user (for development/setup purposes)
-  fastify.post<{ Body: { name: string cellphone: string adminSecret?: string } }>('/api/auth/create-admin', async (request: FastifyRequest<{ Body: { name: string cellphone: string adminSecret?: string } }>, reply: FastifyReply) => {
+  fastify.post<{ Body: { name: string; cellphone: string; adminSecret?: string } }>('/api/auth/create-admin', async (request: FastifyRequest<{ Body: { name: string; cellphone: string; adminSecret?: string } }>, reply: FastifyReply) => {
     try {
       const { name, cellphone, adminSecret } = request.body
 

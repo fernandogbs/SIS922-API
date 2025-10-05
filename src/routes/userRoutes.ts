@@ -83,7 +83,7 @@ export async function userRoutes(fastify: FastifyInstance) {
     }
   })
 
-  fastify.delete('/api/cart/remove/:userId/:productId', async (request: FastifyRequest<{ Params: { userId: string productId: string } }>, reply: FastifyReply) => {
+  fastify.delete('/api/cart/remove/:userId/:productId', async (request: FastifyRequest<{ Params: { userId: string; productId: string } }>, reply: FastifyReply) => {
     try {
       const { userId, productId } = request.params
 

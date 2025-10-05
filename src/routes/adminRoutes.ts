@@ -78,10 +78,10 @@ export async function adminRoutes(fastify: FastifyInstance) {
 
   // Update existing product
   fastify.put<{
-    Params: { adminUserId: string productId: string }
+    Params: { adminUserId: string; productId: string }
     Body: UpdateProductRequest
   }>('/api/admin/:adminUserId/products/:productId', async (request: FastifyRequest<{
-    Params: { adminUserId: string productId: string }
+    Params: { adminUserId: string; productId: string }
     Body: UpdateProductRequest
   }>, reply: FastifyReply) => {
     try {
@@ -122,9 +122,9 @@ export async function adminRoutes(fastify: FastifyInstance) {
 
   // Delete product
   fastify.delete<{
-    Params: { adminUserId: string productId: string }
+    Params: { adminUserId: string; productId: string }
   }>('/api/admin/:adminUserId/products/:productId', async (request: FastifyRequest<{
-    Params: { adminUserId: string productId: string }
+    Params: { adminUserId: string; productId: string }
   }>, reply: FastifyReply) => {
     try {
       await checkAdminAuth(request, reply)
@@ -188,10 +188,10 @@ export async function adminRoutes(fastify: FastifyInstance) {
 
   // Update order status (accept/decline)
   fastify.patch<{
-    Params: { adminUserId: string orderId: string }
+    Params: { adminUserId: string; orderId: string }
     Body: UpdateOrderStatusRequest
   }>('/api/admin/:adminUserId/orders/:orderId/status', async (request: FastifyRequest<{
-    Params: { adminUserId: string orderId: string }
+    Params: { adminUserId: string; orderId: string }
     Body: UpdateOrderStatusRequest
   }>, reply: FastifyReply) => {
     try {
@@ -232,9 +232,9 @@ export async function adminRoutes(fastify: FastifyInstance) {
 
   // Get specific order details
   fastify.get<{
-    Params: { adminUserId: string orderId: string }
+    Params: { adminUserId: string; orderId: string }
   }>('/api/admin/:adminUserId/orders/:orderId', async (request: FastifyRequest<{
-    Params: { adminUserId: string orderId: string }
+    Params: { adminUserId: string; orderId: string }
   }>, reply: FastifyReply) => {
     try {
       await checkAdminAuth(request, reply)
